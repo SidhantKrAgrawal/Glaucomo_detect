@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.16.1
+FROM --platform=linux/amd64 tensorflow/tensorflow:latest-gpu
 
 # Ensures that Python output to stdout/stderr is not buffered: prevents missing information when terminating
 ENV PYTHONUNBUFFERED 1
@@ -20,3 +20,4 @@ COPY --chown=user:user task1.h5 /opt/app
 COPY --chown=user:user task2.h5 /opt/app
 
 ENTRYPOINT ["python", "inference.py"]
+
