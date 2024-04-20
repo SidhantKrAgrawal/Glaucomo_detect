@@ -7,7 +7,7 @@ from model1 import predict_image
 from model2 import predict_labels
 
 def run():
-    # _show_torch_cuda_info()
+    _show_torch_cuda_info()
 
     for jpg_image_file_name, save_prediction in inference_tasks():
         # Do inference, possibly something better performant
@@ -44,16 +44,16 @@ def run():
     return 0
 
 
-# def _show_torch_cuda_info():
-#     import torch
+def _show_torch_cuda_info():
+    import torch
 
-#     print("=+=" * 10)
-#     print(f"Torch CUDA is available: {(available := torch.cuda.is_available())}")
-#     if available:
-#         print(f"\tnumber of devices: {torch.cuda.device_count()}")
-#         print(f"\tcurrent device: { (current_device := torch.cuda.current_device())}")
-#         print(f"\tproperties: {torch.cuda.get_device_properties(current_device)}")
-#     print("=+=" * 10)
+    print("=+=" * 10)
+    print(f"Torch CUDA is available: {(available := torch.cuda.is_available())}")
+    if available:
+        print(f"\tnumber of devices: {torch.cuda.device_count()}")
+        print(f"\tcurrent device: { (current_device := torch.cuda.current_device())}")
+        print(f"\tproperties: {torch.cuda.get_device_properties(current_device)}")
+    print("=+=" * 10)
 
 
 if __name__ == "__main__":

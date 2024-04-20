@@ -14,6 +14,8 @@ RUN python -m pip install \
     --no-color \
     --requirement requirements.txt
 
+COPY --chown=user:user model1.py /opt/app
+COPY --chown=user:user model2.py /opt/app
 COPY --chown=user:user helper.py /opt/app
 COPY --chown=user:user inference.py /opt/app
 COPY --chown=user:user task1.h5 /opt/app
