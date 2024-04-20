@@ -6,4 +6,4 @@ pandas
 h5py
 scikit-learn
 opencv-python
-
+matplotlib
