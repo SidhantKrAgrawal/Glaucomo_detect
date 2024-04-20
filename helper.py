@@ -5,6 +5,7 @@ from pprint import pprint
 
 import SimpleITK as sitk
 from PIL import Image
+import os
 
 DEFAULT_GLAUCOMATOUS_FEATURES = {
     "appearance neuroretinal rim superiorly": None,
@@ -115,17 +116,23 @@ def stack_inference(stack, callback):
 
 def write_referable_glaucoma_decision(result):
     result = [bool(x) for x in result]
+    directory = "test/output"
+    os.makedirs(directory, exist_ok=True)
     with open(f"test/output/multiple-referable-glaucoma-binary.json", "w") as f:
         f.write(json.dumps(result))
 
 
 def write_referable_glaucoma_decision_likelihood(result):
     result = [float(x) for x in result]
+    directory = "test/output"
+    os.makedirs(directory, exist_ok=True)
     with open(f"test/output/multiple-referable-glaucoma-likelihoods.json", "w") as f:
         f.write(json.dumps(result))
 
 
 def write_glaucomatous_features(result):
     result = [x for x in result]
+    directory = "test/output"
+    os.makedirs(directory, exist_ok=True)
     with open(f"test/output/stacked-referable-glaucomatous-features.json", "w") as f:
         f.write(json.dumps(result))
