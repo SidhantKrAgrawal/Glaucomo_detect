@@ -4,6 +4,8 @@ FROM --platform=linux/amd64 tensorflow/tensorflow:latest-gpu
 ENV PYTHONUNBUFFERED 1
 
 RUN adduser --system --group user
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 USER user
 
 WORKDIR /opt/app
