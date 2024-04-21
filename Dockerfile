@@ -2,6 +2,7 @@ FROM --platform=linux/amd64 tensorflow/tensorflow:latest-gpu
 
 # Ensures that Python output to stdout/stderr is not buffered: prevents missing information when terminating
 ENV PYTHONUNBUFFERED 1
+ENV TF_ENABLE_ONEDNN_OPTS=0
 
 RUN adduser --system --group user
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
